@@ -5,6 +5,7 @@ import mongoStore from 'connect-mongo';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path';
 import mongoose from 'mongoose';
 import handlebars from 'express-handlebars';
 import LoginRoutes from './routes/login.js';
@@ -36,7 +37,7 @@ app.use(
 
 app.use(express.static('public'));
 app.engine('handlebars', handlebars.engine());
-app.set('views', 'src/views/');
+app.set('views', path.join(process.cwd(), 'src', 'views'));
 app.set('view engine', 'handlebars');
 
 app.use('/api/campers', new CampersCRUD().getRouter());
