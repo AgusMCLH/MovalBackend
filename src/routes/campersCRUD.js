@@ -12,10 +12,10 @@ export default class CampersCRUD extends CustomRouter {
         ...camper,
       }));
       campersList.forEach((camper) => {
-        if (!campersList.medicaciones) {
-          campersList.medicaciones = [{ nombre: 'Ninguna', dosis: 'Ninguna' }];
+        if (!camper.medicaciones) {
+          camper.medicaciones = [{ nombre: 'Ninguna', dosis: 'Ninguna' }];
         }
-        campersList.isPaid = campersList.isPaid ? undefined || false : false;
+        camper.isPaid = camper.isPaid ? undefined || false : false;
       });
 
       console.log(campersList);
