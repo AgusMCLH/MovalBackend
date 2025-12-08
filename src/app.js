@@ -35,16 +35,16 @@ app.use(
   })
 );
 
-app.use(express.static('public'));
+app.use(express.static(path.join(process.cwd(), 'public')));
 app.engine('handlebars', handlebars.engine());
 app.set('views', path.join(process.cwd(), 'src', 'views'));
 app.set('view engine', 'handlebars');
 
 app.use('/api/campers', new CampersCRUD().getRouter());
 app.use('/login', new LoginRoutes().getRouter());
-// app.get('/', (req, res) => {
-//   res.redirect('/login');
-// });
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
