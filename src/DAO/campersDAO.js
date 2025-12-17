@@ -8,17 +8,6 @@ class CampersDAO {
   async getAllCampers() {
     try {
       const campers = await this.model.find().lean();
-      // campers.forEach((camper) => {
-      //   console.log(camper);
-
-      //   console.log(
-      //     'Medicaciones for camper',
-      //     camper.name,
-      //     ':',
-      //     JSON.stringify(camper.medications)
-      //   );
-      // });
-
       return campers;
     } catch (error) {
       throw new Error('Error fetching campers');

@@ -42,6 +42,13 @@ function renderTable(data) {
   });
 }
 
+const generatePDF = () => {
+  const token = window.location.href.split('token=')[1]; // Suponiendo que el token está en la URL
+  console.log('Token para PDF:', token);
+  const pdfUrl = `/api/pdf/generate?token=${token}`;
+  window.location.href = location.origin + pdfUrl;
+};
+
 /*
             {
                 id: {{this.index}},

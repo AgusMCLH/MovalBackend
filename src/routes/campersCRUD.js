@@ -11,14 +11,7 @@ export default class CampersCRUD extends CustomRouter {
         index: index + 1,
         ...camper,
       }));
-      campersList.forEach((camper) => {
-        if (!camper.medicaciones) {
-          camper.medicaciones = [{ nombre: 'Ninguna', dosis: 'Ninguna' }];
-        }
-        camper.isPaid = camper.isPaid ? undefined || false : false;
-      });
 
-      console.log(campersList);
       res.render('campers', { campers: campersList });
     });
     this.get('/:id', [], [], async (req, res) => {

@@ -9,6 +9,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import handlebars from 'express-handlebars';
 import LoginRoutes from './routes/login.js';
+import PDFRoute from './routes/pdfRoute.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,6 +43,7 @@ app.set('view engine', 'handlebars');
 
 app.use('/api/campers', new CampersCRUD().getRouter());
 app.use('/login', new LoginRoutes().getRouter());
+app.use('/api/pdf', new PDFRoute().getRouter());
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
